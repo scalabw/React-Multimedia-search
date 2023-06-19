@@ -59,8 +59,9 @@ const SearchBar = ({ multimediaType }: SearchBarProps) => {
   }, [searchInputValue, multimediaType, setSearchParams, dispatch])
 
   useEffect(() => {
+    dispatch(multimediaActions.reset())
     debouncedSendRequest(() => startSearch())
-  }, [searchInputValue, multimediaType, debouncedSendRequest, startSearch])
+  }, [searchInputValue, multimediaType, debouncedSendRequest, startSearch, dispatch])
 
   return <Input onChange={setSearchInputValue} label='Search' value={searchInputValue} />
 }

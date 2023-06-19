@@ -72,14 +72,14 @@ const createExtraActions = () => {
     const getMoviesByTitle = () => {
         return createAsyncThunk(
             `${name}/searchMovies`,
-            async ({ movieTitle, page = 1 }: getMoviesByTitleParam) => await fetchWrapper.get(`/movie?query=${movieTitle}&page=${page ? page : 1}`)
+            async ({ movieTitle, page = 1 }: getMoviesByTitleParam) => await fetchWrapper.get(`/search/movie?query=${movieTitle}&page=${page ? page : 1}`)
         );
     }
 
     const getSeriesByTitle = () => {
         return createAsyncThunk(
             `${name}/searchSeries`,
-            async ({ serieTitle, page = 1 }: getSeriesByTitleParam) => await fetchWrapper.get(`/tv?query=${serieTitle}&page=${page ? page : 1}`)
+            async ({ serieTitle, page = 1 }: getSeriesByTitleParam) => await fetchWrapper.get(`/search/tv?query=${serieTitle}&page=${page ? page : 1}`)
         );
     }
 
@@ -139,7 +139,7 @@ const name = 'multimedia';
 const initialState = createInitialState();
 const extraActions = createExtraActions();
 const extraReducers = createExtraReducers();
-const slice = createSlice({ name, initialState, reducers: {}, extraReducers });
+const slice = createSlice({ name, initialState, reducers: { reset: () => ({ ...initialState, loading: true }) }, extraReducers });
 
 export const multimediaActions = { ...slice.actions, ...extraActions };
 
