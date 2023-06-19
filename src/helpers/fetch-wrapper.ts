@@ -4,7 +4,7 @@ export const fetchWrapper = {
 
 function request(method: string) {
     return async (params: string) => {
-        const baseUrl = `https://api.themoviedb.org/3/search/`;
+        const baseUrl = `https://api.themoviedb.org/3/`;
 
         const requestOptions: RequestInit = {
             method,
