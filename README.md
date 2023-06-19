@@ -4,7 +4,7 @@ This project allow you to search for movies and series and get the details of th
 Based on the API of [themoviedb](https://api.themoviedb.org/3/search/)
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/scalabw/technical-test-react-movies-series-search.git`
+1. Clone the repository: `git clone https://github.com/scalabw/React-Multimedia-search.git`
 2. Install dependencies: `npm install` or `yarn install`
 3. Add your api key in the file in .env file from API [Get Your API Key Here](https://developer.themoviedb.org/docs) inside the variable REACT_APP_API_KEY
 
