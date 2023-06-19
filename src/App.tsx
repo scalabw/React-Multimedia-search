@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import MultimediaSearch, { MultimediaType } from './components/MultimediaSearch'
 import './App.css'
 
@@ -15,11 +15,7 @@ function App() {
             path='/series'
             element={<MultimediaSearch multimediaType={MultimediaType.series} />}
           />
-          {/* this part will handle the movie and serie details  
-          <Route path='/movies/:movieId' element={<MultimediaSearchResults />} />
-          <Route path='/series/:serieId' element={<MultimediaSearchResults />} />
-          */}
-          <Route path='*' element={null} />
+          <Route path='*' element={<Navigate to='/movies' />} />
         </Routes>
       </BrowserRouter>
     </div>
