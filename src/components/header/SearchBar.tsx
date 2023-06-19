@@ -59,7 +59,7 @@ const SearchBar = ({ multimediaType }: SearchBarProps) => {
   }, [searchInputValue, multimediaType, setSearchParams, dispatch])
 
   useEffect(() => {
-    dispatch(multimediaActions.reset())
+    if (searchInputValue) dispatch(multimediaActions.reset())
     debouncedSendRequest(() => startSearch())
   }, [searchInputValue, multimediaType, debouncedSendRequest, startSearch, dispatch])
 
