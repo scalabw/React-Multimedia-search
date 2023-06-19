@@ -61,12 +61,11 @@ const MultimediaSearchResults = ({ multimediaType }: MultimediaSearchResultsProp
     }
   }
 
-  const hasNotMultimediaToShow =
-    !notInitialized && mediasList[page] && mediasList[page].length === 0
+  const hasNotMultimediaToShow = !mediasList[page] || mediasList[page].length === 0
 
   if (loading) return <LoadingAnimation />
   if (error) return <ResultError />
-  if (hasNotMultimediaToShow) return <NoContent />
+  if (!notInitialized && hasNotMultimediaToShow) return <NoContent />
 
   const MultiMediaItemComponent = getMultimediaComponentList(multimediaType)
 
