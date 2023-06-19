@@ -97,6 +97,7 @@ const createExtraReducers = () => {
             builder
                 .addCase(pending, (state: multimediaState) => {
                     state.loading = true;
+                    state.error = false;
                     state.notInitialized = false;
                 })
                 .addCase(fulfilled, (state: multimediaState, action: FulfilledGetMultimediaDataAction) => {
