@@ -2,7 +2,7 @@ import React from 'react'
 
 const NoContent = () => {
   return (
-    <div className='center-content'>
+    <div className='centered-content'>
       <p>No results found</p>
     </div>
   )

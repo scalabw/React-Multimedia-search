@@ -3,7 +3,7 @@ import { CircularProgress } from '@mui/material'
 
 const LoadingAnimation = () => {
   return (
-    <div className='center-content'>
+    <div className='centered-content'>
       <CircularProgress />
     </div>
   )
