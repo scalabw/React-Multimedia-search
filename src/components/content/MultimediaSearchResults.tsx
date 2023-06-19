@@ -61,15 +61,18 @@ const MultimediaSearchResults = ({ multimediaType }: MultimediaSearchResultsProp
     }
   }
 
+  const hasNotMultimediaToShow =
+    !notInitialized && mediasList[page] && mediasList[page].length === 0
+
   if (loading) return <LoadingAnimation />
   if (error) return <ResultError />
-  if (!notInitialized && !mediasList.length && !!!mediasList[page]) return <NoContent />
+  if (hasNotMultimediaToShow) return <NoContent />
 
   const MultiMediaItemComponent = getMultimediaComponentList(multimediaType)
 
   return (
     <>
-      {mediasList[page] && (
+      {!hasNotMultimediaToShow && (
         <>
           <ul className='card-list'>
             {mediasList[page].map((mediaItem) => (
