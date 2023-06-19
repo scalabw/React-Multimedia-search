@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MultimediaSearch, { MultimediaType } from './components/MultimediaSearch'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path='/movies'
+            element={<MultimediaSearch multimediaType={MultimediaType.movies} />}
+          />
+          <Route
+            path='/series'
+            element={<MultimediaSearch multimediaType={MultimediaType.series} />}
+          />
+          {/* this part will handle the movie and serie details  
+          <Route path='/movies/:movieId' element={<MultimediaSearchResults />} />
+          <Route path='/series/:serieId' element={<MultimediaSearchResults />} />
+          */}
+          <Route path='*' element={null} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
