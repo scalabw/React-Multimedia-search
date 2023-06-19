@@ -1,5 +1,6 @@
 import React from 'react'
 import { MovieDetails } from '../../store/multimedia.slice'
+import { Card, CardHeader, CardMedia } from '@mui/material'
 
 interface MovieCardProps {
   mediaItem: MovieDetails
@@ -7,13 +8,16 @@ interface MovieCardProps {
 
 const MovieCard = ({ mediaItem }: MovieCardProps) => {
   return (
-    <li className='card-item'>
-      <h2 className='card-title'>{mediaItem.title}</h2>
-      <img
-        src={`https://image.tmdb.org/t/p/original/${mediaItem.poster_path}`}
-        alt={`movie poster of ${mediaItem.title}`}
-        className='card-image'
-      />
+    <li className='list-item'>
+      <Card className='card-item'>
+        <CardHeader title={mediaItem.title} className='card-title' />
+        <CardMedia
+          component='img'
+          className='card-image'
+          image={`https://image.tmdb.org/t/p/original/${mediaItem.poster_path}`}
+          alt={`movie poster of ${mediaItem.title}`}
+        />
+      </Card>
     </li>
   )
 }

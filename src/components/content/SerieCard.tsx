@@ -1,5 +1,6 @@
 import React from 'react'
 import { SerieDetails } from '../../store'
+import { Card, CardHeader, CardMedia } from '@mui/material'
 
 interface SerieCardProps {
   mediaItem: SerieDetails
@@ -7,13 +8,16 @@ interface SerieCardProps {
 
 const SerieCard = ({ mediaItem }: SerieCardProps) => {
   return (
-    <li className='card-item'>
-      <h2 className='card-title'>{mediaItem.name}</h2>
-      <img
-        className='card-image'
-        src={`https://image.tmdb.org/t/p/original/${mediaItem.poster_path}`}
-        alt={`serie poster of ${mediaItem.name}`}
-      />
+    <li className='list-item'>
+      <Card className='card-item'>
+        <CardHeader title={mediaItem.name} />
+        <CardMedia
+          component='img'
+          className='card-image'
+          image={`https://image.tmdb.org/t/p/original/${mediaItem.poster_path}`}
+          alt={`movie poster of ${mediaItem.name}`}
+        />
+      </Card>
     </li>
   )
 }
